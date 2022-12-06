@@ -15,7 +15,6 @@ PERTANYAAN:
 4. PAKEK METODE APA VARIABLE PERBOX DI SIMPAN 
 5. BAGAIMANA ELEMENT DAN OBJECT SALING BERKAITAN 
 
-```
 variable untuk perbox
 {
     gambar:"brazil"
@@ -40,7 +39,6 @@ boxGroub[9].terbuka = true
 
 2 kali klik box :render -> if(boxGroub[9].gambar === boxGroub[2].gambar) boxGroub[2].ditemukan = true
 di render ke <main>
-```
 
 #UNTUK NGAKSES ELEMENT KITA MENGGUNAKAN METODE 1 PERSATU
 ```

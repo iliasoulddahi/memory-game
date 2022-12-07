@@ -8,10 +8,15 @@
 }
 
 body{  
-  background: linear-gradient(180deg, rgba(175,221,186,1) 46%, rgba(110,186,130,1) 100%);  display:grid;
+  background:blue;
+  background-image: url('page/Background.png');
+  background-repeat:no-repeat ;
+  background-size:cover;
+  height:100vh;
+
+  display:grid;
   justify-content:center;
   align-content:center;
-  height:100vh;
   /* padding: 50px; */
 }
 

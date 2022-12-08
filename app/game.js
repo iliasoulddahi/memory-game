@@ -3,7 +3,7 @@ let level = location.search.substring(1)
 
 //CONSTAN
 let flipCount = 0
-let matchCount = 15
+let matchCount = 0
 let waktuSelesai = 0
 const flags = [
     "assets/flag_png/argentina.png",

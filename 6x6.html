@@ -8,6 +8,8 @@
     <title>Game Memory</title> 
   </head>
   <body>
+    <audio src="assets\sound and bgm\sound effect klik kedua.mp3" id="clickEffect" style="display: none;"></audio>
+    <audio src="assets\sounds\suara_tetris_match.mp3" id="matchEffect" style="display: none;"></audio>
     <main>
       <p id="timer"></p>
     </main>
@@ -53,6 +55,12 @@
     <!-- <button class="stop">Berhenti</button> -->
     <a href="#" class="stop">Berhenti</a>
 
+    <script>
+      let flipSound = document.querySelector('#clickEffect')
+      let matchSound = document.querySelector('#matchEffect')
+      flipSound.volume = 0.2
+      matchSound.volume = 0.4
+    </script>
     <script src="app/ui.js"></script>
     <script src="app/game.js"></script>
   </body>

@@ -1,6 +1,20 @@
 //get
 let level = location.search.substring(1)
 
+ //stop button 
+ let stop = document.querySelector('.stop')
+ stop.addEventListener("click", (e) => {
+  let getScore =  Math.floor((matchCount / 16 * 300) + (200 / flipCount * 300) + ((countUp) / (waktuMain * 60 * 0.65) * 400))
+  setTimeout(function(){
+              
+    window.location.replace(`gameover.html?-|-|-|-|${level}`);
+  
+  },1000)
+
+ })
+
+
+
 //CONSTAN
 let flipCount = 0
 let matchCount = 0
@@ -81,10 +95,16 @@ const flags = [
   for (let i = 0; i < boxes.length; i++) {
     const element = boxes[i];
     element.id = 'box'+i
+    
   
-    element.addEventListener("click", (e) => {
-      if(element === document.querySelector('#'+terbuka[0])) return
+    element.addEventListener("click", eventFunction = function() {
       
+      if(
+        element === document.querySelector(`#${terbuka[0]}`) ||
+        element.classList.contains('terbuka')
+      ) return
+      flipSound.play()
+      console.log('terklik')
       //menambah flip 
       flipCount++
       terbuka.push(element.id);
@@ -105,8 +125,8 @@ const flags = [
           el.querySelector(".quest").style.display = "block";
         }
   
-        setTimeout(show, 300);
-        setTimeout(hide, 290);
+        setTimeout(show, 250);
+        setTimeout(hide, 250);
       }
   
       function showFlag(el) {
@@ -117,8 +137,8 @@ const flags = [
         function hide() {
           el.querySelector(".quest").style.display = "none";
         }
-        setTimeout(show, 300);
-        setTimeout(hide, 290);
+        setTimeout(show, 250);
+        setTimeout(hide, 250);
       }
       
       showFlag(element)
@@ -126,13 +146,16 @@ const flags = [
       if (terbuka.length > 1) {
         if(boxSekarang.lastChild.src !== boxTerakhir.lastChild.src){
           setTimeout(function(){
-            //code goes here
+            
             showQuest(boxSekarang)
             showQuest(boxTerakhir)
-         }, 1000);  
-        }else{
+         }, 600);  
+        }else{ // MATCH 
           matchCount++
-          if(matchCount === 16) {
+          matchSound.play()
+          boxSekarang.classList.add('terbuka')
+          boxTerakhir.classList.add('terbuka')
+          if(matchCount === 18) {
             // redirect(baseurl+'selesai.html')
             setTimeout(function(){
               
@@ -186,24 +209,19 @@ var x = setInterval(function () {
 
   if (distance < 0) {
     //DIEKSEKUSI SETELAH WAKTU HABIS
-    main.innerHTML = "<h1>WAKTU HABIS</h1>"
+    let getScore =  Math.floor((matchCount / 16 * 300) + (200 / flipCount * 300) + ((countUp) / (waktuMain * 60 * 0.65) * 400))
+  setTimeout(function(){
+              
+    window.location.replace(`gameover.html?${flipCount}|${matchCount}|${countUp}|${getScore===Infinity?0:getScore}|${level}`);
+  
+  },1000)
   }
   // console.log();
 
  
 }, 1000);
 
- //stop button 
- let stop = document.querySelector('.stop')
- stop.addEventListener("click", (e) => {
-   let sisaWaktu = menit + 'm ' + detik + 's'
-   setTimeout(function(){
-              
-    window.location.replace(`selesai.html?${flipCount}|${matchCount}|${countUp}`);
-  
-  },1000)
 
- })
 //score counter 
 let countUp = 0 // menghitung waktu 
 

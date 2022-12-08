@@ -1,23 +1,45 @@
-// // const div = document.querySelector('.box')
+//CONSTAN
+let flipCount = 0
+let matchCount = 0
+let waktuSelesai = 0
 
-// document.querySelector('body').style.backgroundImage = 'url(assets/page/Background.png)'
 const flags = [
     "assets/flag_png/argentina.png",
     "assets/flag_png/australia.png",
     "assets/flag_png/brazil.png",
+    "assets/flag_png/croatia.png",
+    "assets/flag_png/england.png",
+    "assets/flag_png/france.png",
+    "assets/flag_png/germany.png",
+    "assets/flag_png/indonesia.png",
+    "assets/flag_png/japan.png",
+    "assets/flag_png/morocco.png",
+    "assets/flag_png/netherlands.png",
+    "assets/flag_png/poland.png",
+    "assets/flag_png/portugal.png",
+    "assets/flag_png/senegal.png",
+    "assets/flag_png/sk.png",
+    "assets/flag_png/spain.png",
+    "assets/flag_png/swiss.png",
+    "assets/flag_png/usa.png",
+    "assets/flag_png/argentina.png",
+    "assets/flag_png/australia.png",
     "assets/flag_png/brazil.png",
-    "assets/flag_png/brazil.png",
-    "assets/flag_png/brazil.png",
-    "assets/flag_png/brazil.png",
-    "assets/flag_png/brazil.png",
-    "assets/flag_png/brazil.png",
-    "assets/flag_png/brazil.png",
-    "assets/flag_png/brazil.png",
-    "assets/flag_png/brazil.png",
-    "assets/flag_png/brazil.png",
-    "assets/flag_png/brazil.png",
-    "assets/flag_png/brazil.png",
-    "assets/flag_png/brazil.png",
+    "assets/flag_png/croatia.png",
+    "assets/flag_png/england.png",
+    "assets/flag_png/france.png",
+    "assets/flag_png/germany.png",
+    "assets/flag_png/indonesia.png",
+    "assets/flag_png/japan.png",
+    "assets/flag_png/morocco.png",
+    "assets/flag_png/netherlands.png",
+    "assets/flag_png/poland.png",
+    "assets/flag_png/portugal.png",
+    "assets/flag_png/senegal.png",
+    "assets/flag_png/sk.png",
+    "assets/flag_png/spain.png",
+    "assets/flag_png/swiss.png",
+    "assets/flag_png/usa.png"
   ];
   
   function shuffle(array) {
@@ -62,15 +84,19 @@ const flags = [
     element.id = 'box'+i
   
     element.addEventListener("click", (e) => {
+      if(element === document.querySelector('#'+terbuka[0])) return
+      
+      //menambah flip 
+      flipCount++
+
       terbuka.push(element.id);
       
   
       //variable
       let boxSekarang = document.querySelector('#'+terbuka[1])
       let boxTerakhir = document.querySelector('#'+terbuka[0])
-      // console.log(boxSekarang.lastChild.src, 'box sekarang')
-      // console.log(boxTerakhir.lastChild.src, 'box terakhir')
-      console.log(terbuka, 'terbuka')
+      
+
       function showQuest(el) {
         el.classList.remove("rotate");
         function hide() {
@@ -104,8 +130,9 @@ const flags = [
             //code goes here
             showQuest(boxSekarang)
             showQuest(boxTerakhir)
-         }, 1000);
-          
+         }, 1000);  
+        }else{
+          matchCount++
         }
         terbuka = []
       }  // return apabila yang terbuka sudah 2
@@ -119,7 +146,7 @@ const flags = [
   //TIMER
   var d = new Date();
   var millisecondssince1970 = d.getTime();
-  var newMillisec = millisecondssince1970 + (400 * 60);
+  var newMillisec = millisecondssince1970 + (100000 * 60);
   
   var countDownDate = new Date(newMillisec);
   

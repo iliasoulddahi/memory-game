@@ -81,10 +81,15 @@ const flags = [
   for (let i = 0; i < boxes.length; i++) {
     const element = boxes[i];
     element.id = 'box'+i
+    
   
-    element.addEventListener("click", (e) => {
-      if(element === document.querySelector('#'+terbuka[0])) return
+    element.addEventListener("click", eventFunction = function() {
       
+      if(
+        element === document.querySelector(`#${terbuka[0]}`) ||
+        element.classList.contains('terbuka')
+      ) return
+      console.log('terklik')
       //menambah flip 
       flipCount++
       terbuka.push(element.id);
@@ -132,6 +137,8 @@ const flags = [
          }, 600);  
         }else{
           matchCount++
+          boxSekarang.classList.add('terbuka')
+          boxTerakhir.classList.add('terbuka')
           if(matchCount === 16) {
             // redirect(baseurl+'selesai.html')
             setTimeout(function(){

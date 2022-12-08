@@ -3,7 +3,7 @@ let level = location.search.substring(1)
 
 //CONSTAN
 let flipCount = 0
-let matchCount = 15
+let matchCount = 0
 let waktuSelesai = 0
 const flags = [
     "assets/flag_png/argentina.png",
@@ -105,8 +105,8 @@ const flags = [
           el.querySelector(".quest").style.display = "block";
         }
   
-        setTimeout(show, 300);
-        setTimeout(hide, 290);
+        setTimeout(show, 250);
+        setTimeout(hide, 250);
       }
   
       function showFlag(el) {
@@ -117,8 +117,8 @@ const flags = [
         function hide() {
           el.querySelector(".quest").style.display = "none";
         }
-        setTimeout(show, 300);
-        setTimeout(hide, 290);
+        setTimeout(show, 250);
+        setTimeout(hide, 250);
       }
       
       showFlag(element)
@@ -129,7 +129,7 @@ const flags = [
             //code goes here
             showQuest(boxSekarang)
             showQuest(boxTerakhir)
-         }, 1000);  
+         }, 600);  
         }else{
           matchCount++
           if(matchCount === 16) {

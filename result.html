@@ -17,8 +17,8 @@
     </div>
     
     <img src="assets/page/Result Page/icon lvl3.png" alt="">
-    <button>Main Level Selanjutnya</button>
-    <button>Kembali Ke Main Menu</button>
+    <a onclick="goToNextLevel()" class="levelSelanjutnya">Main Level Selanjutnya</a>
+    <a>Kembali Ke Main Menu</a>
     <div class="score">
       <table>
         <th>Level 1 Selesai</th>
@@ -51,6 +51,15 @@
         document.querySelector('.totalMatch').innerHTML = queryArr[1]
         document.querySelector('.totalWaktu').innerHTML = queryArr[2]
         document.querySelector('.totalScore').innerHTML = queryArr[3]
+        if(queryArr[4] < 5){
+          const next = document.querySelector('.levelSelanjutnya')
+          next.innerHTML = 'All Level Selesai'
+          next.onclick = ""
+        }
+        const nextLevel = queryArr[4]/2
+        function goToNextLevel(){
+          window.location.replace('6x6.html?'+nextLevel)
+        } 
         
     </script>
 </body>

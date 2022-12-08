@@ -3,7 +3,7 @@ let level = location.search.substring(1)
 
 //CONSTAN
 let flipCount = 0
-let matchCount = 0
+let matchCount = 15
 let waktuSelesai = 0
 const flags = [
     "assets/flag_png/argentina.png",
@@ -136,7 +136,7 @@ const flags = [
             // redirect(baseurl+'selesai.html')
             setTimeout(function(){
               
-              window.location.replace(`selesai.html?${flipCount}|${matchCount}|${countUp}|${Math.floor((matchCount / 16 * 300) + (200 / flipCount * 300) + ((countUp) / (waktuMain * 60 * 0.65) * 400))}|${level}`);
+              window.location.replace(`result.html?${flipCount}|${matchCount}|${countUp}|${Math.floor((matchCount / 16 * 300) + (200 / flipCount * 300) + ((countUp) / (waktuMain * 60 * 0.65) * 400))}|${level}`);
             
             },1000)
           }

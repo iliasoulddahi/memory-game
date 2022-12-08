@@ -74,7 +74,7 @@ section p {
   font-size:50px;
 }
 
-section button{
+section a{
   align-self:flex-end;
   width: 300px;
   height : 30px;
@@ -86,6 +86,8 @@ section button{
   cursor:pointer;
   margin-bottom: 10px;
   margin-top:10px ;
+  text-align: center;
+  cursor: pointer;
 }
 
 

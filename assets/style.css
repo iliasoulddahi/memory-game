@@ -1,0 +1,131 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Quicksand:wght@700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  /* font-size:; */
+  font-family: 'Poppins', sans-serif;
+}
+
+body{  
+  /* background:blue; */
+  background-image: url('page/Background.png');
+  background-repeat:no-repeat ;
+  background-size:cover;
+  height:100vh;
+
+  display:grid;
+  justify-content:center;
+  align-content:center;
+  /* padding: 50px; */
+}
+
+
+main{
+  /* background:blue; */
+  padding: 0 20px 0 0;
+}
+main p{
+  font-size:30px;
+  float:right;
+}
+section{ 
+  /* border:1px solid red; */
+
+  /* background:blue; */
+  background: rgb(116,196,148);
+background: linear-gradient(0deg, rgba(59,182,127,1) 0% , rgba(116,196,148,0.8) 100%);
+  padding: 20px;
+  display:grid;
+  grid-auto-flow:row;
+  grid-template-columns : repeat(6, 70px) ; 
+  grid-template-rows : repeat(6, 70px) ;
+  grid-gap:5px;
+  border-radius:10px;
+  /* grid-gap:5px; */
+}
+
+section .box{
+  /* width: 80px; */
+  /* height:80px; */
+  /* border:1px solid black; */
+  border-radius:5px;
+  /* background:white; */
+  
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.box img {
+  width: 100%;
+  height: 100%;
+}
+ 
+
+.rotate {
+  transform: rotateY( 180deg ) ;
+  /* transition: transform 0.5s; */
+}
+.rotate2 {
+  transform: rotateY( -180deg ) ;
+  /* transition: transform 0.5s; */
+}
+
+.flag {
+  display:none
+}
+
+
+a{
+  justify-self:center; 
+  cursor:pointer;
+  margin-top:20px;
+  text-decoration:none;
+  color:#ffc709;
+  margin:10px;
+  width:100px;
+  display:inline-block;
+  line-height:40px;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  background-color: #368763;
+   border:5px solid #000;
+   box-shadow:1px 1px 0, 2px 2px 0, 3px 3px 0, 4px 4px 0,5px 5px 0;
+  position: relative;
+  text-align:center;
+}
+
+ a:after{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width:100%;
+   z-index: -1;
+  background-color: #fff;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+}
+a:hover{
+  background-color: transparent; 
+}
+ a:hover:after{
+  background-color: #a72845;
+}
+
+ a:active{
+   top:5px;
+   left:5px;
+   box-shadow:0 0 0 0;
+}

@@ -1,8 +1,10 @@
+//get
+let level = location.search.substring(1)
+
 //CONSTAN
 let flipCount = 0
 let matchCount = 0
 let waktuSelesai = 0
-
 const flags = [
     "assets/flag_png/argentina.png",
     "assets/flag_png/australia.png",
@@ -58,9 +60,6 @@ const flags = [
   
   let randomFlags = shuffle(flags);
   
-  
-  
-  
   const boxes = document.querySelectorAll(".box");
   
   for (let i = 0; i < boxes.length; i++) {
@@ -88,8 +87,8 @@ const flags = [
       
       //menambah flip 
       flipCount++
-
       terbuka.push(element.id);
+      console.log(level)
       
   
       //variable
@@ -133,6 +132,14 @@ const flags = [
          }, 1000);  
         }else{
           matchCount++
+          if(matchCount === 16) {
+            // redirect(baseurl+'selesai.html')
+            setTimeout(function(){
+              
+              window.location.replace(`selesai.html?${flipCount}|${matchCount}|${countUp}|${Math.floor((matchCount / 16 * 300) + (200 / flipCount * 300) + ((countUp) / (waktuMain * 60 * 0.65) * 400))}|${level}`);
+            
+            },1000)
+          }
         }
         terbuka = []
       }  // return apabila yang terbuka sudah 2
@@ -144,25 +151,61 @@ const flags = [
   
   
   //TIMER
-  var d = new Date();
-  var millisecondssince1970 = d.getTime();
-  var newMillisec = millisecondssince1970 + (100000 * 60);
+// hitung timer 
+let detik = -1
+let menit = 0
+if (detik === 60) {
+  menit += 1
+  detik = 0
+}
+
+
+//TIMER
+var d = new Date();
+var millisecondssince1970 = d.getTime();
+let waktuMain = level
+let milisecond = 60100
+var newMillisec = millisecondssince1970 + waktuMain * milisecond;
+
+var countDownDate = new Date(newMillisec);
+
+var x = setInterval(function () {
+  // counting score n time
+  detik++
+  countUp++
+
+
+  var now = new Date().getTime();
+
+  var distance = countDownDate - now;
+
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
+
+  if (distance < 0) {
+    //DIEKSEKUSI SETELAH WAKTU HABIS
+    main.innerHTML = "<h1>WAKTU HABIS</h1>"
+  }
+  // console.log();
+
+ 
+}, 1000);
+
+ //stop button 
+ let stop = document.querySelector('.stop')
+ stop.addEventListener("click", (e) => {
+   let sisaWaktu = menit + 'm ' + detik + 's'
+   setTimeout(function(){
+              
+    window.location.replace(`selesai.html?${flipCount}|${matchCount}|${countUp}`);
   
-  var countDownDate = new Date(newMillisec);
-  
-  var x = setInterval(function() {
-  
-    var now = new Date().getTime();
-  
-    var distance = countDownDate - now;
-  
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  
-    document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
-  
-    if (distance < 0) {
-      //DIEKSEKUSI SETELAH WAKTU HABIS
-      main.innerHTML = "<h1>WAKTU HABIS</h1>"
-    }
-  }, 1000);
+  },1000)
+
+ })
+//score counter 
+let countUp = 0 // menghitung waktu 
+
+
+let finalscore = (matchCount / 16 * 30) + (100 / flipCount * 30) + ((countUp) / (waktuMain * 60 * 0.65) * 40)

@@ -80,7 +80,7 @@ const flags = [
     const element = boxes[i];
     let qimg = document.createElement("img"); //quest img
     qimg.className = "quest";
-    qimg.src = "assets/flag_png/icon_tandaTanya.png";
+    qimg.src = "assets/flag_png/icon_laeeb.png";
   
     let fimg = document.createElement("img"); // flag img
     fimg.className = "flag";
